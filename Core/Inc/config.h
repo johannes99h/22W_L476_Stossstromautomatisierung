@@ -4,8 +4,9 @@ extern 		TIM_HandleTypeDef htim2;
 extern 		TIM_HandleTypeDef htim3;
 
 uint8_t 	counterSeconds;
+uint8_t 	maxSeconds;
+uint8_t		counterActivations;
 uint8_t		maxActivations;
-uint16_t	counterActivations;
 
 void 		HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim);
 

@@ -1,12 +1,9 @@
 #include <config.h>
 
-
-
 uint8_t 	counterSeconds 		= 0;
-uint16_t	counterActivations 	= 0;
+uint8_t		maxSeconds			= 0;
+uint8_t		counterActivations 	= 0;
 uint8_t		maxActivations 		= 255;
-
-
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim)
 {
@@ -15,7 +12,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim)
 		// Inkrementierung einmal pro Minute per ISR
 		counterSeconds++;
 
-		if(counterSeconds == 60)
+		if(counterSeconds == maxSeconds)
 		{
 			if(activateOutput() == HAL_OK)
 			{
@@ -35,7 +32,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim)
 		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 	}
 }
-
 
 int activateOutput()
 {
