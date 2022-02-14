@@ -1,7 +1,9 @@
 #include 	"stm32l4xx_hal.h"
+#include 	"stdio.h"
 
-extern 		TIM_HandleTypeDef htim2;
-extern 		TIM_HandleTypeDef htim3;
+extern 		TIM_HandleTypeDef 	htim2;
+extern 		TIM_HandleTypeDef 	htim3;
+extern		UART_HandleTypeDef	huart4;
 
 uint8_t 	counterSeconds;
 uint8_t 	maxSeconds;
