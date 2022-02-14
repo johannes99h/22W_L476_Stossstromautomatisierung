@@ -22,9 +22,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim)
 				// UART-Benachrichtigung
 				uint8_t activationSuccessfulSize;
 				char activationSuccessful[17];
-				sequenceFinishedSize = sprintf(activationSuccessful, "Auslösung %d \n\r", counterActivations);
+				activationSuccessfulSize = sprintf(activationSuccessful, "Auslösung %d \n\r", counterActivations);
 				HAL_UART_Transmit(&huart4, (uint8_t *)activationSuccessful, activationSuccessfulSize, 10);
-
 			}
 		}
 
